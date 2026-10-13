@@ -25,4 +25,9 @@
     vesktop
     jetbrains.idea
   ];
+  programs.git = {
+    enable = true;
+    userName = "Meywy";
+    userEmail = "meywyy@gmail.com";
+};
 }
