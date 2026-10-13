@@ -1,13 +1,19 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./opencode.nix
+  ];
+
   home.username = "vojta";
   home.homeDirectory = "/home/vojta";
+
   programs.git = {
     enable = true;
     userName = "Meywy";
     userEmail = "meywyy@gmail.com";
   };
+
   home.stateVersion = "26.05";
 
   programs.bash = {
