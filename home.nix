@@ -6,7 +6,7 @@
   programs.git.enable = {
     enable = true;
     userName = "Meywy";
-    userEmail = "meywyy@gmail.com"
+    userEmail = "meywyy@gmail.com";
   };
   home.stateVersion = "26.05";
 
