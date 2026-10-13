@@ -3,7 +3,7 @@
 {
   home.username = "vojta";
   home.homeDirectory = "/home/vojta";
-  programs.git.enable = {
+  programs.git = {
     enable = true;
     userName = "Meywy";
     userEmail = "meywyy@gmail.com";
