@@ -13,6 +13,13 @@
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
+  hardware.opentabletdriver.enable = true;
+
+  services.udev.extraRules = ''
+    KERNEL=="hidraw*", ATTRS{idVendor}=="056a", TAG+="uaccess"
+    SUBSYSTEM=="usb", ATTR{idVendor}=="0ac3", TAG+="uaccess"
+  '';
+
   # Set your time zone.
   time.timeZone = "Europe/Prague";
 
@@ -29,11 +36,14 @@
   programs.sway.enable = true;
   security.polkit.enable = true;
   security.pam.services.swaylock = {};
+
+  programs.zsh.enable = true;
  
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.vojta = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
+    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
