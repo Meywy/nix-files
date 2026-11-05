@@ -9,15 +9,15 @@
 
   programs.git = {
     enable = true;
-    userName = "Meywy";
-    userEmail = "meywyy@gmail.com";
+    settings = {
+      user = {
+        name = "Meywy";
+        email = "meywyy@gmail.com";
+      };
+    };
   };
 
   home.stateVersion = "26.05";
-
-  home.sessionVariables = {
-    GITHUB_TOKE = "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";
-  };
 
   programs.waybar = {
     enable = true;
@@ -263,6 +263,14 @@
         bg = "/home/vojta/Config/config/wallpapers/wallpaper_one.jpg fill";
       };
 
+      # Added window rules for CS2 to force floating, remove borders, and stretch across the screen
+      window.commands = [
+        {
+          criteria = { app_id = "cs2"; };
+          command = "border none";
+        }
+      ];
+
       keybindings = let
         modifier = config.wayland.windowManager.sway.config.modifier;
       in lib.mkOptionDefault {
@@ -278,26 +286,17 @@
     ripgrep
     nil
     nixpkgs-fmt
-    nodejs
-    gcc
-    prismlauncher
     vesktop
-    jetbrains.idea
-    jetbrains.goland
-    bun
     waybar
     rofi
     swaybg
-    clang-tools
-    go
-    gopls
-    osu-lazer
-    opentabletdriver
     grim
     slurp
     wl-clipboard
-    jdk25
-    gradle
+    obs-studio
+    kdePackages.dolphin
+    unzip
+    spotify
     inputs.opencode.packages.${pkgs.system}.default
   ];
 }
